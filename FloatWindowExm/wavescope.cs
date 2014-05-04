@@ -36,6 +36,7 @@ namespace FloatWindowExm
         private void Form_Load(object sender, EventArgs e)
         {
 
+            /*产生一个柱状图
             ChartArea myarea = this.chart1.ChartAreas.Add("de");
             this.chart1.BorderlineDashStyle = ChartDashStyle.DashDotDot;
             this.chart1.Palette = ChartColorPalette.SeaGreen;
@@ -44,24 +45,42 @@ namespace FloatWindowExm
             int[] PointsArry = { 1, 2 };
             
 
-            /*for (int i = 0; i < seriesArry.Length; i++)
+            for (int i = 0; i < seriesArry.Length; i++)
             {
                 Series myseries = this.chart1.Series.Add(seriesArry[i]);
                 myseries.Points.Add(PointsArry[i]);
             }*/
-            Series num = this.chart1.Series.Add("line");
-            num.MarkerStyle = MarkerStyle.Circle;
-            num.MarkerSize = 12;
+
+            /*产生一个十个点的line*/
+            ChartArea myaera = this.chart1.ChartAreas.Add("de");
+            myaera.AxisX.MajorGrid.LineWidth = 0;
+            myaera.AxisY.MajorGrid.LineWidth = 0;
+            Series num = this.chart1.Series.Add("RandomLine");
+            num.MarkerStyle = MarkerStyle.Diamond;
+            num.MarkerSize = 5;
             num.ChartType = SeriesChartType.Line;
-            int[] msg = { 1, 4, 2, 5, 7, 8, 5, 6, 4, 9, 3, 10 };
-            for (int i = 0; i <= 10; i++)
+            num.IsValueShownAsLabel = true;
+            num.ToolTip = "数值：#VAL";
+            int[] msg = { 1, 4, 2, 5, 7, 8, 5, 6, 4, 9, 3, 10, 3, 5, 2, 5, 2, 5, 4 };
+            for (int i = 0; i <= 15; i++)
             {
                 num.Points.AddXY(i, msg[i]);
             }
         }
 
-
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Random rm = new Random();
+            int val = rm.Next(100);
+            //Series num = this.chart1.Series.Add("RandomLine");
+            //num.MarkerStyle = MarkerStyle.Circle;
+            //num.MarkerSize = 5;
+            //num.ChartType = SeriesChartType.Line;
+            //num.IsValueShownAsLabel = true;
+            //num.ToolTip = "数值：#VAL";
+            //num.Points.AddXY(i, val);
+            //i = i + 1;
+        }
 
 
     }

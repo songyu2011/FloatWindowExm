@@ -159,6 +159,7 @@
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "calculator";
             this.Text = "calculator";
+            this.Load += new System.EventHandler(this.button2_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
