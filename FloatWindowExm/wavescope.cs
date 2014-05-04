@@ -17,7 +17,6 @@ namespace FloatWindowExm
         public wavescope()
         {
             InitializeComponent();
-            Series Series1 = new Series();
         }
         #region 字段
         private static wavescope Instance;
@@ -34,11 +33,36 @@ namespace FloatWindowExm
         }
         #endregion
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Form_Load(object sender, EventArgs e)
         {
-            //chart1.ChartAreas.Add("s1");
 
+            ChartArea myarea = this.chart1.ChartAreas.Add("de");
+            this.chart1.BorderlineDashStyle = ChartDashStyle.DashDotDot;
+            this.chart1.Palette = ChartColorPalette.SeaGreen;
+            this.chart1.Titles.Add("Pets");
+            string[] seriesArry = { "Cats", "Dogs" };
+            int[] PointsArry = { 1, 2 };
+            
+
+            /*for (int i = 0; i < seriesArry.Length; i++)
+            {
+                Series myseries = this.chart1.Series.Add(seriesArry[i]);
+                myseries.Points.Add(PointsArry[i]);
+            }*/
+            Series num = this.chart1.Series.Add("line");
+            num.MarkerStyle = MarkerStyle.Circle;
+            num.MarkerSize = 12;
+            num.ChartType = SeriesChartType.Line;
+            int[] msg = { 1, 4, 2, 5, 7, 8, 5, 6, 4, 9, 3, 10 };
+            for (int i = 0; i <= 10; i++)
+            {
+                num.Points.AddXY(i, msg[i]);
+            }
         }
+
+
+
+
+
     }
 }
