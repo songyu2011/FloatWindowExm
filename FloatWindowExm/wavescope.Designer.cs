@@ -40,7 +40,10 @@
             // 
             // chart1
             // 
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            this.chart1.BorderlineColor = System.Drawing.Color.Black;
             chartArea1.Name = "ChartArea1";
+            chartArea1.ShadowColor = System.Drawing.Color.Black;
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
@@ -71,10 +74,10 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "初始化";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
