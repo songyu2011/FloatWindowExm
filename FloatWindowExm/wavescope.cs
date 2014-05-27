@@ -34,7 +34,7 @@ namespace FloatWindowExm
         #endregion
         
         Series num = new Series();
-        //ChartArea de = new ChartArea();
+        ChartArea de = new ChartArea();
         DataTable tbl = new DataTable();
         int x = 14;
         
@@ -58,9 +58,9 @@ namespace FloatWindowExm
             }*/
             
             /*产生一个十个点的line*/
-            //ChartArea myaera = this.chart1.ChartAreas.Add("de");
-            //myaera.AxisX.MajorGrid.LineWidth = 0;
-            //myaera.AxisY.MajorGrid.LineWidth = 0;
+            ChartArea myaera = this.chart1.ChartAreas.Add("de");
+            myaera.AxisX.MajorGrid.LineWidth = 0;
+            myaera.AxisY.MajorGrid.LineWidth = 0;
             chart1.Series.Add("test");
             chart1.Series["test"].XValueMember = "x";
             chart1.Series["test"].YValueMembers = "y";
@@ -72,7 +72,7 @@ namespace FloatWindowExm
             tbl.Columns.Add("x");
             tbl.Columns.Add("y");
             
-            for(int i=0;i<15;i++)
+            for(int i = 0;i < 15; i++)
             {
                 tbl.Rows.Add(i,i);
             }
@@ -126,6 +126,11 @@ namespace FloatWindowExm
         {
             timer1.Interval = 200;
             timer1.Start();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
         }
 
 
