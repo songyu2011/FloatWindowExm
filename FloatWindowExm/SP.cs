@@ -11,13 +11,17 @@ using System.Text.RegularExpressions;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace SerialportSample
+
 {
+    public delegate void MyDelegate(byte[] text);
+
     public partial class SerialportForm :DockContent
     {
         private SerialPort comm = new SerialPort();
         private StringBuilder builder = new StringBuilder();//避免在事件处理方法中反复的创建，定义到外面。
         private long received_count = 0;//接收计数
         private long send_count = 0;//发送计数
+        public event MyDelegate myevent;
 
         public SerialportForm()
         {
@@ -80,6 +84,11 @@ namespace SerialportSample
                 {
                     //直接按ASCII规则转换成字符串
                     builder.Append(Encoding.ASCII.GetString(buf));
+                }
+                if (myevent != null)
+                {
+                    myevent(buf);
+
                 }
                 //追加的形式添加到文本框末端，并滚动到最后。
                 this.txGet.AppendText(builder.ToString());

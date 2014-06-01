@@ -17,7 +17,6 @@ namespace FloatWindowExm
         #region 字段
         private string m_DockPath = string.Empty;
         #endregion
-
         public Form1()
         {
             InitializeComponent();

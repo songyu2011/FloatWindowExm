@@ -33,8 +33,8 @@ namespace FloatWindowExm
         }
         #endregion
         
-        Series num = new Series();
-        ChartArea de = new ChartArea();
+        //Series num = new Series();
+        //ChartArea de = new ChartArea();
         DataTable tbl = new DataTable();
         int x = 14;
         
